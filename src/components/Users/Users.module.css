@@ -8,3 +8,7 @@
   flex-direction: row;
   align-items: center;
 }
+
+.selected_page {
+  font-weight: bold;
+}
