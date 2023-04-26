@@ -14,7 +14,7 @@ class UsersContainerComponent extends React.Component {
       .then(response => {
         this.props.toggleIsFetching(false)
         this.props.setUsers(response.data.items);
-        this.props.setTotalUsersCout(response.data.totalCount);
+        this.props.setUsersTotalCount(response.data.totalCount);
       })
   }
 
