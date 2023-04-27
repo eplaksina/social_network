@@ -1,6 +1,7 @@
 import styles from './Users.module.css'
 import React from "react";
 import { NavLink } from 'react-router-dom';
+import { follow } from '../../redux/users-reducer';
 
 let Users = (props) => {
   let pagesCount = props.totalUsersCount / props.pageSize
@@ -27,14 +28,24 @@ let Users = (props) => {
                 <div>
                   {u.followed ?
                     <button onClick={() => {
-                      props.unfollow(u.id)
+                      follow.deleteFollow(u.id)
+                        .then(data => {
+                          if (data.resultCode === 0) {
+                            props.unfollow(u.id)
+                          }
+                        })
 
                     }}>
                       Unfollow
                     </button>
                     :
                     <button onClick={() => {
-                      props.follow(u.id)
+                      follow.postFollow(u.id)
+                        .then(data => {
+                          if (data.resultCode === 0) {
+                            props.follow(u.id)
+                          }
+                        })
 
                     }}>
                       Follow
