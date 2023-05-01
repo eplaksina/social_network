@@ -36,9 +36,11 @@ export const auth = {
 }
 
 export const follow = {
-    postFollow(id = 1) {
-        return instanse
-            .post(`follow/${id}`)
+    postFollow(userId) {
+        return axios
+            .post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {
+                withCredentials: true
+            })
             .then(response => {
                 return response.data
             })
