@@ -6,6 +6,7 @@ import ProfileContainer from './components/Profile/ProfileContainer';
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import UsersContainer from './components/Users/UsersContainer'
+import Login from './components/Login/Login'
 
 const App = () => {
   return (
@@ -25,6 +26,10 @@ const App = () => {
 
             <Route path='/users'
               element={<UsersContainer />}
+            />
+
+            <Route path='/login'
+              element={<Login />}
             />
 
             <Route path='/'
