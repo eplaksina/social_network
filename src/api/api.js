@@ -12,10 +12,18 @@ export const usersAPI = {
             .then(response => {
                 return response.data
             })
+    },
+    follow(userId) {
+        return instanse
+        .post(`follow/${userId}`)
+    },
+    unfollow(userId) {
+        return instanse
+            .delete(`follow/${userId}`)
     }
 }
 
-export const profile = {
+export const profileAPI = {
     getProfile(userId) {
         return instanse
             .get(`profile/${userId}`)
@@ -25,30 +33,10 @@ export const profile = {
     }
 }
 
-export const auth = {
+export const authAPI = {
     getAuth() {
         return instanse
             .get(`auth/me`)
-            .then(response => {
-                return response.data
-            })
-    }
-}
-
-export const follow = {
-    postFollow(userId) {
-        return axios
-            .post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, {
-                withCredentials: true
-            })
-            .then(response => {
-                return response.data
-            })
-    },
-
-    deleteFollow(id = 1) {
-        return instanse
-            .delete(`follow/${id}`)
             .then(response => {
                 return response.data
             })
